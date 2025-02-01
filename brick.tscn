@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://i4xj7ol36d7u"]
+[gd_scene load_steps=5 format=3 uid="uid://i4xj7ol36d7u"]
 
+[ext_resource type="Script" path="res://brick.gd" id="1_ahs0j"]
 [ext_resource type="Texture2D" uid="uid://c0vfnffvotalo" path="res://icon.svg" id="1_ltpbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0lon"]
 size = Vector2(26, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu5ws"]
+size = Vector2(28, 33.3333)
+
 [node name="Brick" type="StaticBody2D"]
-scale = Vector2(1, 0.3)
+scale = Vector2(2, 0.6)
+script = ExtResource("1_ahs0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v0lon")
@@ -15,3 +20,12 @@ shape = SubResource("RectangleShape2D_v0lon")
 position = Vector2(-0.062499, -0.062499)
 scale = Vector2(0.204102, 0.204102)
 texture = ExtResource("1_ltpbq")
+
+[node name="BrickHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickHitBox"]
+position = Vector2(0, 5.96046e-07)
+shape = SubResource("RectangleShape2D_vu5ws")
+debug_color = Color(0.896191, 0.272419, 0.42557, 0.42)
+
+[connection signal="body_exited" from="BrickHitBox" to="." method="_on_brick_hit_box_body_exited"]

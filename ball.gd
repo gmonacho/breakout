@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 300 
-# Called when the node enters the scene tree for the first time.
+signal ball_collided(collider_id: int)
+
+const SPEED = 300
+
 func _ready():
 	start_ball(position)
 
@@ -15,6 +17,8 @@ func _physics_process(delta):
 		return
 
 	velocity = velocity.bounce(collision.get_normal())
+	
+	ball_collided.emit(collision.get_collider_id())
 	
 func start_ball(start_position: Vector2):
 	randomize()

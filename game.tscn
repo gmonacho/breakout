@@ -1,17 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdbpfskcv0oxt"]
+[gd_scene load_steps=5 format=3 uid="uid://bdbpfskcv0oxt"]
 
 [ext_resource type="PackedScene" uid="uid://dsl4o1uopnspt" path="res://character.tscn" id="1_s84lg"]
 [ext_resource type="PackedScene" uid="uid://bkiv6v08u6ff4" path="res://ball.tscn" id="2_brnc2"]
 [ext_resource type="PackedScene" uid="uid://bemqxvauxqqtn" path="res://map.tscn" id="3_200tr"]
+[ext_resource type="PackedScene" uid="uid://i4xj7ol36d7u" path="res://brick.tscn" id="4_fr7wi"]
 
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MyPlayerCharacter" parent="." instance=ExtResource("1_s84lg")]
-position = Vector2(570, 610)
+position = Vector2(587, 609)
 
 [node name="Ball" parent="." instance=ExtResource("2_brnc2")]
-position = Vector2(582, 482)
+position = Vector2(579, 506)
 
 [node name="Map" parent="." instance=ExtResource("3_200tr")]
+
+[node name="Brick" parent="." instance=ExtResource("4_fr7wi")]
+position = Vector2(580, 441)
+
+[node name="Brick2" parent="." instance=ExtResource("4_fr7wi")]
+position = Vector2(579, 395)
