@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bthjrtwnymffg"]
+
+[ext_resource type="PackedScene" uid="uid://57w76lsm0hnc" path="res://character.tscn" id="1_s84lg"]
+
+[node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MyPlayerCharacter" parent="." instance=ExtResource("1_s84lg")]
+position = Vector2(570, 610)
+sync_to_physics = false
