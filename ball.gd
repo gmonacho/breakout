@@ -1,13 +1,23 @@
-extends StaticBody2D
+extends RigidBody2D
 
 
-@export var speed = 400
+var velocity: Vector2
 
+const SPEED = 300 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	start_ball(position)
 
+func _process(delta: float):
+	pass
+	
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * SPEED * delta)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	move_and_collide()
+	if !collision:
+		return
+	velocity = velocity.bounce(collision.get_normal())
+	
+func start_ball(start_position: Vector2):
+	randomize()
+	velocity = Vector2(randf_range(-1, 1), randf_range(-.1, -1)).normalized()
