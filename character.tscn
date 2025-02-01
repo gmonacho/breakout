@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://57w76lsm0hnc"]
+[gd_scene load_steps=5 format=3 uid="uid://dsl4o1uopnspt"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_yoimf"]
 
@@ -14,7 +14,7 @@ gradient = SubResource("Gradient_4v8jr")
 fill_from = Vector2(0.56422, 0)
 
 [node name="PlayerCharacter" type="AnimatableBody2D"]
-collision_layer = 0
+sync_to_physics = false
 script = ExtResource("1_yoimf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
